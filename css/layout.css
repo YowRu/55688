@@ -1,0 +1,3581 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
+* {
+    padding: 0;
+    margin: 0;
+}
+
+ul, li, ol {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+::-webkit-scrollbar {
+    width: 0px;
+    background: transparent;
+    height: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: transparent;
+}
+
+table {
+    border: 1px solid rgba(21, 37, 65, 1);
+    border-collapse: collapse
+}
+
+table td {
+    padding: 5px 8px;
+    height: 1.2rem;
+    line-height: 1.2rem;
+    color: rgba(21, 37, 65, 1);
+    border: 1px solid rgba(21, 37, 65, 1);
+}
+
+body {
+    font-family: 'Ubuntu', sans-serif, '微軟正黑體';
+    width: 100%;
+    position: relative;
+}
+
+header {
+    width: 100%;
+    margin: 0 auto;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 6;
+    transition: all .7s;
+    background-color: #FEE375;
+}
+
+header.bgColor, header.open {
+    background-color: #FEE375;
+}
+
+header nav {
+    width: 30px;
+    height: 40px;
+    cursor: pointer;
+    display: none;
+    position: relative;
+}
+
+header nav span {
+    position: absolute;
+    display: block;
+    width: 26px;
+    height: 2px;
+    background: #4C6E87;
+    -webkit-transition: all .3s ease 0s;
+    transition: all .3s ease 0s;
+}
+
+header nav span:nth-of-type(1) {
+    top: 7px;
+}
+
+header nav span:nth-of-type(2) {
+    top: 17px;
+}
+
+header nav span:nth-of-type(3) {
+    top: 27px;
+}
+
+.menuOpen header nav span:nth-of-type(1) {
+    top: 17px;
+    transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+    background: #4C6E87;
+}
+
+.menuOpen header nav span:nth-of-type(2) {
+    width: 0;
+    right: 0
+}
+
+.menuOpen header nav span:nth-of-type(3) {
+    top: 17px;
+    transform: rotate(-45deg);
+    -webkit-transform: rotate(-45deg);
+    background: #4C6E87;
+}
+
+header .row1 {
+    max-width: 1200px;
+    width: 100%;
+    margin: 0 auto;
+    height: 85px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    position: relative
+}
+
+header .row1>a {
+    display: inline-block;
+}
+
+header .row1 a h1 {
+    font-size: 0;
+    text-indent: -9999px;
+    width: 248px;
+    height: 30px;
+    background: url(../img/logo.svg) no-repeat center;
+    background-size: contain;
+    color: transparent;
+}
+
+header .row1 .right {
+    flex: 1 1;
+    display: flex;
+    justify-content: center;
+    transition: opacity .3s ease;
+}
+
+header .row1 .right a {
+    color: #4C6E87;
+    font-weight: 400;
+    display: inline-block;
+    width: auto;
+    margin: 0 15px;
+    line-height: 32px;
+    font-size: .875rem;
+    position: relative;
+}
+
+header .row1 .btn img {
+    height: 41px;
+    object-fit: contain;
+}
+
+header .row1 .btn img.mobile {
+    display: none;
+}
+
+header .row1 .right a span {
+    font-size: 0.7rem;
+}
+
+header .row1 .menu {
+    width: 100%;
+    height: 91vh;
+    position: fixed;
+    top: 85px;
+    right: 0;
+    z-index: 3;
+    padding: 30px 62px 69px;
+    display: none;
+    background-color: #FEE375;
+    box-sizing: border-box;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-around;
+}
+
+header .row1 .menu.show {
+    display: flex;
+}
+
+header .row1 .menu a {
+    display: block;
+    margin: 0;
+    color: #020202;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 40px;
+    padding: 5px 20px;
+    box-sizing: border-box;
+    background-color: #FEE375;
+}
+
+header .row1 .menu a::before {
+    content: '';
+    display: inline-block;
+    width: 21px;
+    height: 18px;
+    margin-right: 14px;
+    background: url('../img/mobile/menu_ic_m.svg') no-repeat center;
+    background-size: contain;
+}
+
+#main {
+    position: relative;
+    padding-top: 85px;
+}
+
+/*taxi*/
+
+#taxi>.top {
+    background: url('../img/bg_s1.png') no-repeat center;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-top: 75px;
+    overflow: hidden;
+    height: 572px;
+    position: relative;
+}
+
+@keyframes fadein {
+    0% {
+        opacity: 0;
+    }
+    20% {
+        opacity: 0.1;
+    }
+    40% {
+        opacity: 0.2;
+    }
+    60% {
+        opacity: 0.4;
+    }
+    80% {
+        opacity: 0.8;
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1, 1);
+    }
+}
+
+@keyframes falling {
+    0% {
+        top: -25px;
+        opacity: 0.5;
+    }
+    10% {
+        top: 0px;
+        opacity: 1;
+    }
+    20% {
+        top: 25px;
+    }
+    30% {
+        top: 50px;
+    }
+    40% {
+        top: 75px;
+    }
+    50% {
+        top: 110px;
+    }
+    60% {
+        top: 100px;
+    }
+    70% {
+        top: 110px;
+    }
+    80% {
+        top: 100px;
+    }
+    90% {
+        top: 110px;
+    }
+    100% {
+        top: 100px;
+    }
+}
+
+@keyframes sildeUp {
+    0% {
+        bottom: -46px;
+        left: 0;
+        opacity: 0;
+    }
+    25% {
+        bottom: -20px;
+        left: 0;
+        opacity: 0.3;
+    }
+    50% {
+        bottom: 0;
+        left: 0;
+        opacity: 0.5;
+    }
+    75% {
+        bottom: 10px;
+        left: 0;
+        opacity: 1;
+    }
+    85% {
+        bottom: 0;
+        left: 0;
+    }
+    95% {
+        bottom: 10px;
+        left: 0;
+    }
+    100% {
+        bottom: 0px;
+        left: 0;
+    }
+}
+
+#taxi .middle .taxi:nth-child(3) {
+    position: relative;
+}
+
+#taxi .middle .taxi:nth-child(3)::before {
+    position: absolute;
+    left: -150px;
+    top: 100px;
+    content: '';
+    display: none;
+    width: 227px;
+    height: 100px;
+    background: url('../img/cloud_img.svg') no-repeat center;
+    background-size: contain;
+    animation-name: shake3;
+    animation-duration: 15s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+    opacity: 1;
+}
+
+@keyframes shake3 {
+    0% {
+        left: -150px;
+        top: 100px;
+        opacity: 1;
+    }
+    25% {
+        left: -200px;
+        top: 100px;
+        opacity: 0.5;
+    }
+    50% {
+        left: -130px;
+        top: 100px;
+        opacity: 0.8;
+    }
+    75% {
+        left: -200px;
+        top: 100px;
+        opacity: 0.5;
+    }
+    100% {
+        left: -150px;
+        top: 100px;
+        opacity: 1;
+    }
+}
+
+#taxi>.top .title, #taxi>.top .mon, #taxi>.top .title_up, #taxi>.top .title_up_mobile {
+    opacity: 0;
+}
+
+#taxi>.top .title_up_mobile {
+    display: none;
+}
+
+#taxi>.top .text {
+    position: absolute;
+    bottom: 0;
+    width: 550px;
+}
+
+#taxi>.top .mon.show {
+    animation-name: fadein;
+    animation-duration: 1s;
+    animation-timing-function: linear;
+    opacity: 1;
+    position: absolute;
+    bottom: 125px;
+}
+
+#taxi>.top .title.show {
+    animation-name: falling;
+    animation-duration: 1s;
+    animation-timing-function: linear;
+    position: absolute;
+    opacity: 1;
+    top: 100px;
+}
+
+#taxi>.top .title_up.show {
+    animation-name: sildeUp;
+    animation-duration: .5s;
+    animation-timing-function: linear;
+    height: 80px;
+    object-fit: contain;
+    opacity: 1;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+
+@keyframes sildeUpMobile {
+    0% {
+        bottom: -46px;
+        left: 29%;
+        opacity: 0;
+    }
+    25% {
+        bottom: -31px;
+        left: 29%;
+        opacity: 0.3;
+    }
+    50% {
+        bottom: -25px;
+        left: 29%;
+        opacity: 0.5;
+    }
+    75% {
+        bottom: -31px;
+        left: 29%;
+        opacity: 1;
+    }
+    85% {
+        bottom: -25px;
+        left: 29%;
+    }
+    95% {
+        bottom: -31px;
+        left: 29%;
+    }
+    100% {
+        bottom: -25px;
+        left: 29%;
+    }
+}
+
+#taxi>.top .title_up_mobile.show {
+    animation-name: sildeUpMobile;
+    animation-duration: .5s;
+    animation-timing-function: linear;
+    height: 100px;
+    object-fit: contain;
+    opacity: 1;
+    position: absolute;
+    bottom: -25px;
+    left: 29%;
+}
+
+#taxi .middle {
+    background-color: #6CBDC0;
+    position: relative;
+    padding-top: 120px;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+#taxi .middle .taxiWP {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 40%;
+    margin: 0 auto;
+    position: relative;
+}
+
+#taxi .middle .taxi {
+    position: relative;
+    z-index: 2;
+}
+
+#taxi .middle .taxi img.pc {
+    width: 80%;
+    margin: 0 auto;
+    display: block;
+    object-fit: contain;
+}
+
+@keyframes shake {
+    0% {
+        left: -320px;
+        top: 0;
+        opacity: 0.5;
+    }
+    25% {
+        left: -300px;
+        top: 0;
+        opacity: 0.8;
+    }
+    50% {
+        left: -280px;
+        top: 0;
+        opacity: 1;
+    }
+    75% {
+        left: -300px;
+        top: 0;
+        opacity: 0.8;
+    }
+    100% {
+        left: -320px;
+        top: 0;
+        opacity: 0.5;
+    }
+}
+
+@keyframes shakeR {
+    0% {
+        right: -280px;
+        top: 100px;
+        opacity: 1;
+    }
+    25% {
+        right: -300px;
+        top: 100px;
+        opacity: 0.5;
+    }
+    50% {
+        right: -320px;
+        top: 100px;
+        opacity: 0.8;
+    }
+    75% {
+        right: -300px;
+        top: 100px;
+        opacity: 0.5;
+    }
+    100% {
+        right: -280px;
+        top: 100px;
+        opacity: 1;
+    }
+}
+
+#taxi .middle .taxiWP::before {
+    content: '';
+    display: block;
+    width: 227px;
+    height: 90px;
+    position: absolute;
+    left: -320px;
+    top: 0;
+    z-index: 3;
+    background: url('../img/cloud_img.svg') no-repeat center;
+    background-size: contain;
+    animation-name: shake;
+    animation-duration: 8s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+    opacity: 0.5;
+}
+
+#taxi .middle .taxiWP::after {
+    content: '';
+    display: block;
+    width: 227px;
+    height: 100px;
+    position: absolute;
+    right: -280px;
+    top: 100px;
+    z-index: 3;
+    background: url('../img/cloud_img.svg') no-repeat center;
+    background-size: contain;
+    animation-name: shakeR;
+    animation-duration: 10s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+    opacity: 1;
+}
+
+#taxi .middle .noticeWP {
+    position: relative;
+}
+
+#taxi .middle .notice {
+    position: relative;
+    z-index: 2;
+    top: -12px;
+}
+
+#taxi .middle .notice.pc img {
+    width: 65%;
+    object-fit: contain;
+    margin: 0 17.5%;
+}
+
+#taxi .middle .btn {
+    position: relative;
+    width: fit-content;
+    margin: 0 auto;
+    bottom: 94px;
+    z-index: 2;
+    cursor: pointer;
+}
+
+#taxi .middle:after {
+    content: '';
+    display: block;
+    width: 70%;
+    margin: 0 15%;
+    height: 520px;
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 1;
+    background: url('../img/bg_s2.png') no-repeat center top;
+    background-size: cover;
+}
+
+#taxi .middle .mobile {
+    display: none;
+}
+
+.popUp, .pop {
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 7;
+    background-color: rgba(36, 60, 82, 0.5);
+    width: 100vw;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+    display: none;
+}
+
+.pop .content, .popUp .content {
+    width: 100%;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    height: 400px;
+    overflow: scroll;
+}
+
+.pop .content {
+    align-items: center;
+}
+
+.pop .content>div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.pop .content>div .left {
+    margin-right: 22px;
+}
+
+.pop .content div span {
+    display: block;
+}
+
+.pop .content b {
+    margin-bottom: 27px;
+}
+
+.pop .content div img {
+    height: 300px;
+    margin-top: 6px;
+}
+
+.popUp .contentBg, .pop .contentBg {
+    content: '';
+    display: flex;
+    max-width: 900px;
+    width: 100%;
+    height: 500px;
+    background: url('../img/popBg.svg') no-repeat center;
+    background-size: contain;
+    z-index: -1;
+    position: relative;
+    justify-content: center;
+    align-items: center;
+}
+
+.popUp .contentBg .close, .pop .contentBg .close {
+    position: absolute;
+    right: 4%;
+    color: transparent;
+    display: block;
+    width: 60px;
+    height: 60px;
+    top: 2%;
+    z-index: 3;
+    cursor: pointer;
+}
+
+.popUp .content p, .popUp .content b, .pop .content p {
+    width: 80%;
+    margin: 0 auto;
+}
+
+.popUp .content p, .pop .content p, .pop .content p {
+    color: rgba(21, 37, 65, 1);
+    font-size: .9rem;
+    line-height: 1.65rem;
+}
+
+.pop .content p {
+    margin-top: 50px;
+}
+
+.popUp .content b {
+    font-size: 1.5rem;
+    font-weight: 600;
+    text-align: center;
+    margin-bottom: 20px;
+    color: rgba(40, 66, 115, 1);
+}
+
+#taxi .down {
+    background-color: rgba(190, 212, 246, 1);
+}
+
+#taxi .down .row1, #taxi .down .row2, #taxi .down .row3 {
+    max-width: 1200px;
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#taxi .down .row3 {
+    align-items: flex-end;
+}
+
+#taxi .down .row1 {
+    padding: 52px 0;
+}
+
+#taxi .down .row1 .left {
+    display: flex;
+    flex-direction: column-reverse;
+    width: 90px;
+    height: 110px;
+    margin-bottom: 50px;
+}
+
+@keyframes star1 {
+    0% {
+        transform: scale(1);
+        opacity: 0.5;
+    }
+    25% {
+        transform: scale(0.8);
+        opacity: 0.8;
+    }
+    50% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    75% {
+        transform: scale(0.8);
+        opacity: 0.8;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 0.5;
+    }
+}
+
+@keyframes star2 {
+    0% {
+        transform: scale(0.3);
+        opacity: 0.5;
+    }
+    25% {
+        transform: scale(0.5);
+        opacity: 0.8;
+    }
+    50% {
+        transform: scale(0.3);
+        opacity: 1;
+    }
+    75% {
+        transform: scale(0.5);
+        opacity: 0.8;
+    }
+    100% {
+        transform: scale(0.3);
+        opacity: 0.5;
+    }
+}
+
+@keyframes star3 {
+    0% {
+        transform: scale(1);
+        opacity: 0.5;
+    }
+    25% {
+        transform: scale(0.8);
+        opacity: 0.8;
+    }
+    50% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    75% {
+        transform: scale(0.8);
+        opacity: 0.8;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 0.5;
+    }
+}
+
+@keyframes star4 {
+    0% {
+        transform: scale(0.3);
+        opacity: 0.5;
+    }
+    25% {
+        transform: scale(0.5);
+        opacity: 0.8;
+    }
+    50% {
+        transform: scale(0.3);
+        opacity: 0.5;
+    }
+    75% {
+        transform: scale(0.5);
+        opacity: 0.8;
+    }
+    100% {
+        transform: scale(0.3);
+        opacity: 0.5;
+    }
+}
+
+#taxi .down .row1 .left .star1 {
+    width: 53px;
+    height: 53px;
+    animation-name: star1;
+    animation-duration: 4s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+    opacity: 0.5;
+}
+
+#taxi .down .row1 .left .star2 {
+    width: 32px;
+    height: 52px;
+    align-self: flex-end;
+    animation-name: star2;
+    animation-duration: 3s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+    transform: scale(0.3);
+    opacity: 0.5;
+}
+
+#taxi .down .row1 .right {
+    display: flex;
+    flex-direction: column;
+    width: 82px;
+    height: 100px;
+    margin-bottom: 80px;
+}
+
+#taxi .down .row1 .right .star3 {
+    width: 46px;
+    height: 70px;
+    align-self: flex-start;
+    animation-name: star3;
+    animation-duration: 4s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+    opacity: 0.5;
+}
+
+#taxi .down .row1 .right .star4 {
+    width: 25px;
+    height: 40px;
+    align-self: flex-end;
+    animation-name: star4;
+    animation-duration: 3s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+    opacity: 0.5;
+    transform: scale(0.3);
+}
+
+#taxi .down .row1 .title {
+    margin: 0 30px;
+}
+
+#taxi .down .row1 .title.mobile {
+    display: none;
+}
+
+#taxi .down .row2 {
+    margin-bottom: 73px;
+}
+
+#taxi .down .row2 img {
+    margin: 0 9px;
+}
+
+#taxi .down .row3 .text p {
+    margin-bottom: 27px;
+    color: rgba(40, 66, 115, 1);
+    max-width: 750px;
+    width: 100%;
+    line-height: 1.8rem;
+}
+
+#taxi .down .row3 .text .btn img {
+    height: 44px;
+}
+
+#taxi .down .row3 .text .btn {
+    margin-bottom: 60px;
+    cursor: pointer;
+}
+
+/*coin*/
+
+.coin {
+    background-color: rgba(255, 252, 235, 1);
+}
+
+.coin .coinWP {
+    max-width: 1200px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.coin .coinWP>.title {
+    padding-top: 100px;
+    display: block;
+    margin: 0 auto 56px;
+}
+
+.coin .coinWP .flex {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+}
+
+.coin .coinWP .flex>img {
+    max-width: 559px;
+}
+
+.coin .coinWP .flex .left {
+    margin-right: 77px;
+}
+
+.coin .coinWP .flex .left .text {
+    margin-bottom: 68px;
+}
+
+.coin .coinWP .flex .left .text .title {
+    color: rgba(35, 113, 231, 1);
+    font-size: 1.375rem;
+    margin-bottom: 10px;
+}
+
+.coin .coinWP .flex .left .text p {
+    color: rgba(40, 66, 115, 1);
+    margin-bottom: 5px;
+    font-size: .9rem;
+    width: 296px;
+    line-height: 1.8rem;
+}
+
+.coin .coinWP .flex .left .text a {
+    color: #284273;
+    opacity: 0.6;
+    border-bottom: 1px solid rgba(40, 66, 115, 1);
+    padding-bottom: 1px;
+    font-size: 1rem;
+    line-height: 2rem;
+}
+
+/*doll*/
+
+#doll {
+    background-color: rgba(211, 233, 222, 1);
+    padding: 95px 0 73px;
+}
+
+#doll .dollWP {
+    background: url('../img/pic_s6.svg') no-repeat center;
+    background-size: contain;
+    height: 900px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+#doll .dollWP .top {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 81px;
+}
+
+#doll .dollWP .btn {
+    margin-bottom: 20px;
+}
+
+#doll .dollWP .top p {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 0 25px;
+}
+
+/*activity*/
+
+#activity {
+    background-color: rgba(139, 213, 255, 1);
+    padding: 135px 0 115px;
+    overflow: hidden;
+}
+
+#activity .title img, #gift .title img {
+    display: block;
+    margin: 0 auto;
+}
+
+#activity .title, #gift .title {
+    position: relative;
+    max-width: 1200px;
+    width: 100%;
+    margin: 0 auto 53px;
+}
+
+#activity .title::before {
+    content: '';
+    background: url('../img/cloud_img.svg') no-repeat center;
+    background-size: contain;
+    position: absolute;
+    left: -100px;
+    bottom: -100px;
+    width: 227px;
+    height: 100px;
+    animation-name: shake;
+    animation-duration: 8s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+    opacity: 0.5;
+    z-index: 3;
+}
+
+#activity .title::after {
+    content: '';
+    background: url('../img/cloud_img.svg') no-repeat center;
+    background-size: contain;
+    position: absolute;
+    right: -100px;
+    bottom: -150px;
+    width: 227px;
+    height: 100px;
+    animation-name: shakeR;
+    animation-duration: 10s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+    opacity: 1;
+    z-index: 3;
+}
+
+@keyframes activityL {
+    0% {
+        left: -60px;
+        bottom: 100px;
+        opacity: 1;
+    }
+    25% {
+        left: -100px;
+        bottom: 100px;
+        opacity: 0.5;
+    }
+    50% {
+        left: -60px;
+        bottom: 100px;
+        opacity: 0.8;
+    }
+    75% {
+        left: -100px;
+        bottom: 100px;
+        opacity: 0.5;
+    }
+    100% {
+        left: -60px;
+        bottom: 100px;
+        opacity: 1;
+    }
+}
+
+@keyframes activityR {
+    0% {
+        right: -100px;
+        bottom: -10px;
+        opacity: 0.5;
+    }
+    25% {
+        right: -140px;
+        bottom: -10px;
+        opacity: 1;
+    }
+    50% {
+        right: -100px;
+        bottom: -10px;
+        opacity: 0.8;
+    }
+    75% {
+        right: -140px;
+        bottom: -10px;
+        opacity: 1;
+    }
+    100% {
+        right: -100px;
+        bottom: -10px;
+        opacity: 0.5;
+    }
+}
+
+#activity .flex::before {
+    content: '';
+    background: url('../img/cloud_img.svg') no-repeat center;
+    background-size: contain;
+    position: absolute;
+    left: -40px;
+    bottom: 100px;
+    width: 227px;
+    height: 100px;
+    animation-name: activityL;
+    animation-duration: 15s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+    opacity: 1;
+    z-index: 3;
+}
+
+#activity .flex::after {
+    content: '';
+    background: url('../img/cloud_img.svg') no-repeat center;
+    background-size: contain;
+    position: absolute;
+    right: -100px;
+    bottom: -10px;
+    width: 227px;
+    height: 100px;
+    animation-name: activityR;
+    animation-duration: 16s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+    opacity: 0.5;
+    z-index: 3;
+}
+
+#activity .flex {
+    max-width: 1200px;
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+#activity .flex .left {
+    background-color: rgba(80, 160, 255, 1);
+    width: 45%;
+    margin-right: 30px;
+    border: 8px solid #50A0FF;
+    background-color: #50A0FF;
+    box-sizing: border-box;
+    border-radius: 40px;
+    padding-top: 24px;
+    position: relative;
+}
+
+#activity .flex .right {
+    background-color: rgba(64, 124, 217, 1);
+    padding-top: 24px;
+    width: 45%;
+    border: 8px solid #407CD9;
+    background-color: #407CD9;
+    box-sizing: border-box;
+    border-radius: 40px;
+    position: relative;
+}
+
+#activity .flex .left .date {
+    background-color: rgba(59, 144, 246, 1);
+    width: 156px;
+    height: 42px;
+    line-height: 42px;
+    border-radius: 80px;
+    color: #fff;
+    margin: 0 auto;
+    padding: 0 20px;
+    text-align: center;
+}
+
+#activity .flex .right .date {
+    background-color: rgba(40, 107, 210, 1);
+    width: 156px;
+    height: 42px;
+    line-height: 42px;
+    border-radius: 80px;
+    color: #fff;
+    margin: 0 auto;
+    padding: 0 20px;
+    text-align: center;
+}
+
+#activity .flex p {
+    color: #fff;
+    text-align: center;
+    font-size: 1.375rem;
+    margin: 12px auto;
+}
+
+#activity .flex span {
+    display: block;
+    font-size: .85rem;
+    color: #fff;
+    text-align: center;
+    width: 80%;
+    margin: 0 auto 25px;
+}
+
+#activity .flex img {
+    width: 100%;
+    display: block;
+}
+
+#activity .flex .btn {
+    position: absolute;
+    bottom: -24px;
+    left: 35%;
+    cursor: pointer;
+}
+
+#activity>p {
+    margin-top: 41px;
+    width: 486px;
+    margin-left: 52%;
+    color: rgba(40, 66, 115, 1);
+    font-size: .8rem;
+    line-height: 1.2rem;
+}
+
+/*gift*/
+
+#gift {
+    background-color: rgba(126, 173, 245, 1);
+    padding: 113px 0 88px;
+}
+
+#gift .flex {
+    max-width: 900px;
+    margin: 0 auto;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#gift .flex>div {
+    background: #BCD7FF;
+    border: 11px solid #72A4EF;
+    box-sizing: border-box;
+    border-radius: 40px;
+    min-height: 354px;
+}
+
+#gift .flex>div .text p {
+    color: #4786E5;
+    font-weight: 400;
+    font-size: .9rem;
+    text-align: center;
+    width: 90%;
+    margin: 18px auto;
+}
+
+#gift .flex .left .text p {
+    margin: 18px auto 9px;
+}
+
+#gift .flex .right .text p {
+    width: 100%;
+}
+
+#gift .flex .left, #gift .flex .right {
+    width: 45%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+}
+
+#gift .flex .left {
+    margin-right: 30px;
+}
+
+#gift .flex .left .btn {
+    margin-top: 10px;
+}
+
+#gift .flex>div .gift_title {
+    margin: 36px auto 19px;
+    height: 41px;
+    width: 145px;
+    object-fit: contain;
+}
+
+#gift .btn {
+    margin-top: 53px;
+    position: relative;
+    z-index: 4;
+    cursor: pointer;
+}
+
+#gift .btn img {
+    display: block;
+    margin: 0 auto;
+}
+
+#gift .down {
+    max-width: 1200px;
+    width: 100%;
+    margin: -140px auto 0;
+    display: block;
+}
+
+/*card*/
+
+#card {
+    background: #8bc0ff;
+    /* Old browsers */
+    background: -moz-linear-gradient(top, #8bc0ff 0%, #8bc0ff 51%, #8bc0ff 80%, #ffffff 86%, #ffffff 93%, #ffffff 100%);
+    /* FF3.6-15 */
+    background: -webkit-linear-gradient(top, #8bc0ff 0%, #8bc0ff 51%, #8bc0ff 80%, #ffffff 86%, #ffffff 93%, #ffffff 100%);
+    /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to bottom, #8bc0ff 0%, #8bc0ff 51%, #8bc0ff 80%, #ffffff 86%, #ffffff 93%, #ffffff 100%);
+    /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#8bc0ff', endColorstr='#ffffff', GradientType=0);
+    /* IE6-9 */
+    padding-top: 110px;
+}
+
+#card .flex {
+    max-width: 1200px;
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#card .flex .left {
+    width: 450px;
+    margin-right: 50px;
+}
+
+#card .flex>div .title {
+    margin-bottom: 78px;
+}
+
+#card .flex .left .twoDoll {
+    width: 500px;
+    position: relative;
+    z-index: 4;
+}
+
+#card .flex .right {
+    width: 250px;
+    min-height: 400px;
+    position: relative;
+}
+
+#card .flex .right .title {
+    display: none;
+}
+
+.slick-slider {
+    z-index: 4;
+}
+
+.slick-slide img {
+    width: 100%;
+}
+
+#card .flex .right:after {
+    content: '';
+    height: 414px;
+    width: 414px;
+    display: block;
+    background: url('../img/phone_bg_s9.svg') no-repeat center;
+    background-size: contain;
+    position: absolute;
+    left: -70px;
+    top: 20px;
+}
+
+#card .text {
+    max-width: 900px;
+    width: 100%;
+    margin: 0 auto;
+    background: #7EB9FF;
+    border-radius: 20px;
+    padding: 57px 0;
+    box-sizing: border-box;
+}
+
+#card .text p {
+    color: rgba(40, 66, 115, 1);
+    width: 80%;
+    margin: 0 auto;
+    font-size: .85rem;
+    line-height: 2rem;
+}
+
+#card .down {
+    width: 100%;
+    min-height: 1200px;
+    background: url('../img/bg_s10.svg') no-repeat center bottom;
+    background-size: cover;
+    position: relative;
+}
+
+#card .down .title {
+    padding-top: 150px;
+}
+
+#card .down .title img {
+    display: block;
+    margin: 0 auto 50px;
+}
+
+#card .down .slides2.slick-initialized.slick-slider {
+    margin: 0 auto;
+    width: 600px;
+}
+
+#card .down .slides2 img {
+    width: 600px;
+}
+
+#card .down .slides2 img.sliderImg.mobile {
+    display: none;
+}
+
+#card .slides .slick-prev:before {
+    content: '';
+    display: block;
+    background: url('../img/left_s9.svg') no-repeat center;
+    background-size: contain;
+    width: 41px;
+    height: 26px;
+    position: absolute;
+    left: inherit;
+}
+
+#card .slides .slick-next:before {
+    content: '';
+    display: block;
+    background: url('../img/right_s9.svg') no-repeat center;
+    background-size: contain;
+    width: 41px;
+    height: 26px;
+    position: absolute;
+    left: inherit;
+}
+
+#card .down .slides2 .slick-prev:before {
+    content: '';
+    display: block;
+    background: url('../img/left_s10.svg') no-repeat center;
+    background-size: contain;
+    width: 50px;
+    height: 45px;
+    position: absolute;
+    left: inherit;
+}
+
+#card .down .slides2 .slick-next:before {
+    content: '';
+    display: block;
+    background: url('../img/right_s10.svg') no-repeat center;
+    background-size: contain;
+    width: 50px;
+    height: 45px;
+    position: absolute;
+    left: inherit;
+}
+
+/*tPoints*/
+
+#tPoints {
+    margin-top: -450px;
+    position: relative;
+    overflow: hidden;
+    background: url('../img/pic_f.svg') no-repeat center bottom;
+    background-size: contain;
+}
+
+#tPoints .title {
+    position: relative;
+    display: block;
+    margin: 0 auto;
+    z-index: 4;
+}
+
+#tPoints section {
+    max-width: 960px;
+    width: 100%;
+    margin: -50px auto 350px;
+    background: #FFFFFF;
+    padding: 50px 50px 68px;
+    box-sizing: border-box;
+    box-shadow: 2px 4px 28px rgba(0, 0, 0, 0.1);
+    border-radius: 30px;
+    position: relative;
+}
+
+@keyframes cloudL {
+    0% {
+        left: 0;
+        top: 50%;
+        opacity: 0.5;
+    }
+    50% {
+        left: -80px;
+        top: 50%;
+        opacity: .3;
+    }
+    100% {
+        left: 0;
+        top: 50%;
+        opacity: 0.5;
+    }
+}
+
+@keyframes cloudR {
+    0% {
+        right: -150px;
+        top: 35%;
+        opacity: .8;
+    }
+    50% {
+        right: -100px;
+        top: 35%;
+        opacity: .6;
+    }
+    100% {
+        right: -150px;
+        top: 35%;
+        opacity: .8;
+    }
+}
+
+#tPoints::before {
+    content: '';
+    background: url(../img/cloud_2.svg) no-repeat center;
+    background-size: contain;
+    position: absolute;
+    left: 0;
+    top: 50%;
+    width: 227px;
+    height: 100px;
+    animation-name: cloudL;
+    animation-duration: 10s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+    opacity: 0.5;
+    z-index: 3;
+}
+
+#tPoints::after {
+    content: '';
+    background: url(../img/cloud_2.svg) no-repeat center;
+    background-size: contain;
+    position: absolute;
+    right: -150px;
+    bottom: 35%;
+    width: 227px;
+    height: 100px;
+    animation-name: cloudR;
+    animation-duration: 10s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+    opacity: .8;
+    z-index: 3;
+}
+
+#tPoints section .row .question {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid #E1E1E1;
+    padding: 31px 0;
+    transition: all 1s;
+}
+
+#tPoints section .row .question.open {
+    border-bottom: 0;
+}
+
+#tPoints section .row .question b {
+    font-weight: 900;
+    font-size: 28px;
+    line-height: 33px;
+    color: #6CBDC0;
+    margin-right: 11px;
+}
+
+#tPoints section .row .question p {
+    font-weight: 600;
+    font-size: 22px;
+    line-height: 31px;
+    color: #000000;
+    transition: all 1s;
+}
+
+#tPoints section .row .question img {
+    width: 24px;
+    height: 10px;
+    object-fit: contain;
+    cursor: pointer;
+}
+
+#tPoints section .row .answer {
+    background: #F9F9F9;
+    padding: 27px 36px;
+    box-sizing: border-box;
+    opacity: 0;
+    display: none;
+    transition: all 1s;
+}
+
+#tPoints section .row .answer.open {
+    opacity: 1;
+    display: block;
+}
+
+#tPoints section .row .question p.open {
+    color: rgba(108, 189, 192, 1);
+}
+
+#tPoints section .row .answer p {
+    margin: 10px auto;
+    line-height: 1.8rem;
+    font-size: .9rem;
+    font-weight: 600;
+}
+
+#tPoints section .row .answer a {
+    color: #4786E5;
+    display: block;
+    margin: 17px auto 51px;
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+#tPoints section .row .answer .flex {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-end;
+}
+
+#tPoints section .row .answer .flex p {
+    width: 188px;
+    margin: 0 12px 17px;
+}
+
+@keyframes drive {
+    0% {
+        right: -10%;
+        bottom: 0;
+    }
+    100% {
+        right: 120%;
+        bottom: 0;
+    }
+}
+
+#tPoints .car {
+    height: 200px;
+    position: absolute;
+    right: 120%;
+    bottom: 0;
+    animation-name: drive;
+    animation-duration: 20s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+}
+
+/*footer*/
+
+footer {
+    background-color: rgba(226, 238, 255, 1);
+    padding: 34px 0 20px;
+}
+
+footer .goTop {
+    width: 50px;
+    cursor: pointer;
+    transition: all .8s;
+    position: fixed;
+    right: 18%;
+    z-index: 4;
+    bottom: 20%;
+    opacity: 0.9;
+    display: none;
+}
+
+footer .flex {
+    max-width: 1200px;
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+footer .flex .left {
+    font-weight: bold;
+    font-size: 2.25rem;
+    color: #000000;
+}
+
+footer .flex .right {
+    max-width: 720px;
+    width: 100%;
+    font-weight: normal;
+    font-size: 1rem;
+    color: #000000;
+    margin-left: 48px;
+}
+
+footer p {
+    text-align: center;
+    margin: 15px auto 10px;
+}
+
+footer img.copyright {
+    display: block;
+    margin: 0 auto;
+}
+
+@media(min-width:2000px) {
+    footer .goTop {
+        right: 23%;
+    }
+}
+
+@media(max-width:1800px) {
+    #taxi .middle .notice.pc img {
+        width: 70%;
+        margin: 0 15%;
+    }
+    #taxi .middle:after {
+        width: 80%;
+        margin: 0 10%;
+    }
+    #taxi .middle .taxi img.pc {
+        width: 85%;
+    }
+}
+
+@media(max-width:1700px) {
+    #taxi .middle .notice.pc img {
+        width: 80%;
+        margin: 0 10%;
+    }
+    #taxi .middle .taxi img.pc {
+        width: 90%;
+    }
+    #taxi .middle .taxiWP {
+        width: 50%;
+    }
+    footer .goTop {
+        right: 14%;
+    }
+}
+
+@media(max-width:1600px) {
+    #taxi .middle:after {
+        width: 90%;
+        margin: 0 5%;
+    }
+    #doll .dollWP {
+        background-size: cover;
+    }
+}
+
+@media(max-width:1500px) {
+    header {
+        padding: 0 20px;
+        box-sizing: border-box;
+    }
+    #taxi .middle:after {
+        width: 100%;
+        margin: 0;
+    }
+    #activity .title, #gift .title {
+        margin-bottom: 70px;
+    }
+    footer .goTop {
+        right: 9%;
+    }
+}
+
+@media(max-width:1400px) {
+    #taxi .middle .notice.pc img {
+        height: 350px;
+        width: 100%;
+        margin: 0;
+        object-fit: cover;
+    }
+    #taxi .middle .taxiWP {
+        width: 70%;
+    }
+    #taxi .middle .taxiWP::after {
+        right: -180px;
+    }
+    #taxi .middle .taxiWP::before {
+        left: -220px;
+    }
+    @keyframes shakeR {
+        0% {
+            right: -180px;
+            top: 100px;
+            opacity: 1;
+        }
+        25% {
+            right: -200px;
+            top: 100px;
+            opacity: 0.5;
+        }
+        50% {
+            right: -220px;
+            top: 100px;
+            opacity: 0.8;
+        }
+        75% {
+            right: -200px;
+            top: 100px;
+            opacity: 0.5;
+        }
+        100% {
+            right: -180px;
+            top: 100px;
+            opacity: 1;
+        }
+    }
+    @keyframes shake {
+        0% {
+            left: -220px;
+            top: 0;
+            opacity: 0.5;
+        }
+        25% {
+            left: -200px;
+            top: 0;
+            opacity: 0.8;
+        }
+        50% {
+            left: -180px;
+            top: 0;
+            opacity: 1;
+        }
+        75% {
+            left: -200px;
+            top: 0;
+            opacity: 0.8;
+        }
+        100% {
+            left: -220px;
+            top: 0;
+            opacity: 0.5;
+        }
+    }
+}
+
+@media(max-width:1300px) {
+    #taxi .middle .taxiWP {
+        width: 80%;
+    }
+    #taxi .down .row3 {
+        width: 95%;
+    }
+    .coin .coinWP .flex {
+        width: 90%;
+        margin: 0 auto;
+    }
+    .coin .coinWP .flex .left {
+        width: 30%;
+        margin-right: 10%;
+    }
+    .coin .coinWP .flex>img {
+        width: 60%;
+    }
+    .coin .coinWP>.title {
+        padding-top: 70px;
+    }
+    #taxi .down .row3 .text {
+        padding-left: 8px;
+    }
+    #activity .title, #gift .title {
+        width: 90%;
+    }
+    #activity {
+        padding-top: 100px;
+    }
+    #activity .title img, #gift .title img {
+        height: 92px;
+    }
+    footer .goTop {
+        right: 6%;
+    }
+}
+
+@media(max-width:1200px) {
+    #activity .flex span {
+        height: 48px;
+    }
+    #activity .title, #gift .title {
+        margin-bottom: 90px;
+    }
+    #tPoints .car {
+        height: 180px;
+    }
+    footer .flex {
+        flex-direction: column;
+    }
+    footer .flex .left {
+        margin-bottom: 13px;
+    }
+    footer .flex .right {
+        margin: 0 auto 13px;
+    }
+}
+
+@media(max-width:1155px) {
+    header .row1 .btn img {
+        height: 36px;
+    }
+    header .row1 a h1 {
+        width: 230px;
+    }
+    header .row1 .right a {
+        margin: 0 10px;
+    }
+    #taxi .middle .notice.pc img {
+        height: 300px;
+    }
+    #taxi .middle .taxiWP {
+        width: 70%;
+    }
+    #taxi .middle .taxi img {
+        width: 90%;
+        object-fit: contain;
+    }
+    #taxi .middle:after {
+        height: 400px;
+    }
+    .coin .coinWP .flex {
+        width: 100%;
+    }
+    .coin .coinWP .flex .left {
+        width: 296px;
+        margin-right: 30px;
+    }
+    .coin .coinWP .flex>img {
+        object-fit: cover;
+    }
+    #activity>p {
+        margin-left: 53%;
+    }
+}
+
+@media(max-width:1080px) {
+    .coin .coinWP>.title {
+        height: 80px;
+    }
+    .coin2 {
+        padding-top: 100px;
+    }
+}
+
+@media(max-width:1000px) {
+    header .row1 a h1 {
+        width: 200px;
+    }
+    header .row1 .btn img {
+        height: 30px;
+    }
+    #taxi>.top {
+        background: url('../img/mobile/bg_s1_m.png') no-repeat right center;
+        background-size: cover;
+        width: 100%;
+    }
+    .popUp .contentBg, .pop .contentBg {
+        width: 90%;
+    }
+    #taxi .middle .taxiWP {
+        width: 80%;
+    }
+    #taxi .down .row2 {
+        width: 75%;
+        flex-wrap: wrap;
+    }
+    #taxi .down .row1 .title {
+        margin: 0 10px;
+    }
+    #activity .title img, #gift .title img {
+        height: auto;
+        width: 87%;
+    }
+    #tPoints::before, #tPoints::after {
+        display: none;
+    }
+}
+
+@media(max-width:950px) {
+    #main {
+        overflow-x: hidden;
+    }
+    #taxi .middle .taxi img.pc, .noticeWP .pc, #taxi .middle:after {
+        display: none;
+    }
+    #taxi .middle .mobile, .noticeWP .mobile {
+        display: block;
+    }
+    #taxi .middle .taxiWP {
+        flex-direction: column;
+    }
+    #taxi .middle {
+        height: auto;
+        overflow: visible;
+    }
+    #taxi .middle .taxiWP::before {
+        left: -120px;
+    }
+    #taxi .middle .taxiWP::after {
+        top: 400px;
+        right: -80px;
+    }
+    #taxi .middle .taxi:nth-child(3)::before {
+        display: block;
+    }
+    @keyframes shake {
+        0% {
+            left: -120px;
+            top: 0;
+            opacity: 0.5;
+        }
+        25% {
+            left: -100px;
+            top: 0;
+            opacity: 0.8;
+        }
+        50% {
+            left: -80px;
+            top: 0;
+            opacity: 1;
+        }
+        75% {
+            left: -100px;
+            top: 0;
+            opacity: 0.8;
+        }
+        100% {
+            left: -120px;
+            top: 0;
+            opacity: 0.5;
+        }
+    }
+    @keyframes shakeR {
+        0% {
+            right: -80px;
+            top: 400px;
+            opacity: 1;
+        }
+        25% {
+            right: -100px;
+            top: 400px;
+            opacity: 0.5;
+        }
+        50% {
+            right: -120px;
+            top: 400px;
+            opacity: 0.8;
+        }
+        75% {
+            right: -100px;
+            top: 400px;
+            opacity: 0.5;
+        }
+        100% {
+            right: -80px;
+            top: 400px;
+            opacity: 1;
+        }
+    }
+    #taxi .middle .taxi img {
+        margin: 20px auto;
+        width: 80%;
+        height: 350px;
+    }
+    #taxi .middle .taxi {
+        width: 60%;
+    }
+    #taxi .middle .noticeWP {
+        background-color: rgba(40, 66, 115, 1);
+        border-top-left-radius: 80px;
+        border-top-right-radius: 80px;
+        padding: 50px 50px 20px;
+    }
+    .noticeWP .mobile p {
+        color: rgba(153, 173, 192, 1);
+        line-height: 34px;
+        width: 87%;
+        margin: 0 auto;
+    }
+    #taxi .middle .btn {
+        bottom: 0;
+    }
+    .coin .coinWP .flex>img {
+        width: 55%;
+    }
+    #doll .dollWP {
+        height: 800px;
+    }
+    #doll .dollWP .top p img:nth-child(1) {
+        height: 200px;
+    }
+    @keyframes activityT {
+        0% {
+            right: 0px;
+            bottom: 80px;
+            opacity: 1;
+        }
+        50% {
+            right: -50px;
+            bottom: 80px;
+            opacity: 0.5;
+        }
+        100% {
+            right: 0px;
+            bottom: 80px;
+            opacity: 1;
+        }
+    }
+    #activity .title::after {
+        right: 0px;
+        bottom: 80px;
+        animation-name: activityT;
+        animation-duration: 10s;
+        animation-iteration-count: infinite;
+        animation-timing-function: linear;
+        opacity: 1;
+        z-index: 3;
+        width: 186px;
+    }
+    #gift .flex {
+        flex-direction: column;
+    }
+    #gift .flex .left, #gift .flex .right {
+        width: 60%;
+        margin: 20px auto;
+    }
+    #card .text {
+        width: 90%;
+        padding: 37px 0;
+    }
+}
+
+@media(max-width:915px) {
+    header nav {
+        display: block;
+        z-index: 3;
+    }
+    header .row1 .right {
+        display: none;
+    }
+    header .row1 a h1 {
+        width: 200px;
+    }
+    header {
+        padding: 0;
+    }
+    header .row1 .btn {
+        margin-left: 60%;
+    }
+    header .row1 .btn img.pc {
+        display: none;
+    }
+    header .row1 .btn img.mobile {
+        display: block;
+    }
+    header .row1 {
+        justify-content: center;
+    }
+    .popUp .content {
+        height: 350px;
+    }
+    .popUp .contentBg .close, .pop .contentBg .close {
+        right: 1%;
+        top: 8%;
+    }
+    .pop .content {
+        width: 90%;
+        margin: 20px auto 0;
+    }
+    #taxi .middle {
+        padding-top: 50px;
+    }
+    #taxi .down .row1 .title {
+        margin: 0;
+    }
+    #taxi .down .row1 .left, #taxi .down .row1 .right {
+        width: 60px;
+    }
+    .coin .coinWP .flex {
+        flex-direction: column;
+        align-items: center;
+    }
+    .coin .coinWP .flex .left {
+        width: 50%;
+        margin-right: 0;
+    }
+    .coin .coinWP .flex .left .text p {
+        width: 100%;
+    }
+    .coin .coinWP .flex>img {
+        width: 70%;
+    }
+    .coin .coinWP .flex .left .text .title {
+        font-size: 1.5rem;
+    }
+    .coin .coinWP .flex .left .text p {
+        font-size: 1rem;
+    }
+    .coin .coinWP .flex .left .text a {
+        font-size: 1.1rem;
+    }
+    #activity>p {
+        margin: 49px auto 0;
+        width: 90%;
+    }
+    #activity .title, #gift .title {
+        margin-bottom: 50px;
+    }
+    #activity .flex {
+        flex-direction: column;
+    }
+    #activity .flex .left, #activity .flex .right {
+        width: 60%;
+        margin: 30px auto;
+    }
+    #activity .flex span {
+        height: auto;
+    }
+    #activity .flex .btn {
+        bottom: -30px;
+    }
+    #gift .flex>div {
+        min-height: 360px;
+    }
+    #gift .flex>div .gift_title {
+        margin: 0 auto 19px;
+    }
+    #gift .flex .left, #gift .flex .right {
+        justify-content: center;
+    }
+    #gift .down {
+        margin-top: -40px;
+        object-fit: cover;
+        width: 140%;
+    }
+    footer .goTop {
+        right: 3%;
+    }
+}
+
+@media(max-width:850px) {
+    header .row1 .btn {
+        margin-left: 55%;
+    }
+    .noticeWP .mobile p {
+        width: 97%;
+    }
+    .coin .coinWP .flex>img {
+        width: 75%;
+    }
+    #doll .dollWP {
+        height: 750px;
+    }
+    #card .down .title {
+        padding: 120px 0 0;
+    }
+    #card .down .title img {
+        height: 80px;
+    }
+    #card .down .slides2.slick-initialized.slick-slider {
+        margin: 85px auto 0;
+        width: 500px;
+    }
+    #card .down .slides2 img {
+        width: 500px;
+    }
+    #card .down {
+        min-height: 1000px;
+    }
+    #tPoints {
+        margin-top: -250px;
+    }
+}
+
+@media(max-width:800px) {
+    header .row1 .btn {
+        margin-left: 50%;
+    }
+    #taxi .down .row1 .title {
+        display: none;
+    }
+    #taxi .down .row1 .title.mobile {
+        display: block;
+        height: 120px;
+        margin: 0 30px;
+    }
+    #taxi .down .row1 .left, #taxi .down .row1 .right {
+        width: 70px;
+    }
+    #taxi .down .row2 img {
+        height: 300px;
+    }
+    #taxi .down .row3 {
+        flex-direction: column;
+    }
+    #taxi .down .row3 .text .btn img {
+        display: block;
+        margin: 0 auto;
+    }
+    #taxi .down .row3 .text p {
+        width: 90%;
+        margin: 0 auto 25px;
+    }
+    #taxi .down .row3 .text {
+        padding-left: 0;
+    }
+    .coin .coinWP .flex>img {
+        width: 80%;
+    }
+    .coin .coinWP .flex .left {
+        width: 60%;
+    }
+    #activity .flex .left, #activity .flex .right, #gift .flex .left, #gift .flex .right {
+        width: 70%;
+    }
+    #activity .title img, #gift .title img {
+        width: 95%;
+    }
+    #activity {
+        padding: 80px 0;
+    }
+    @keyframes activityT {
+        0% {
+            right: -150px;
+            bottom: 20px;
+            opacity: 1;
+        }
+        50% {
+            right: -100px;
+            bottom: 20px;
+            opacity: 0.5;
+        }
+        100% {
+            right: -150px;
+            bottom: 20px;
+            opacity: 1;
+        }
+    }
+    #activity .title::after {
+        bottom: 20px;
+        right: -150px;
+    }
+    #card .flex {
+        flex-direction: column-reverse;
+    }
+    #card .flex .left, #card .flex .right {
+        width: 80%;
+        margin: 20px auto;
+    }
+    #card .flex .right .title {
+        display: block;
+    }
+    #card .flex .left .title {
+        display: none;
+    }
+    #card .flex .right {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    #card .flex .right:after {
+        top: 175px;
+        left: 19%;
+    }
+    .slick-slider {
+        width: 230px;
+    }
+    #tPoints section .row .answer .flex {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    #tPoints section .row .answer .flex .column, #tPoints section .row .answer .flex>img {
+        margin-bottom: 30px;
+    }
+    #tPoints section .row .answer .flex p {
+        margin-bottom: 5px;
+    }
+    footer .flex .right {
+        width: 90%;
+        line-height: 1.6rem;
+    }
+    footer p {
+        margin: 4px auto 20px;
+        width: 90%;
+    }
+    footer {
+        padding: 34px 0;
+    }
+}
+
+@media(max-width:780px) {
+    .popUp .contentBg, .pop .contentBg {
+        background: url('../img/mobile/popbg_m.svg') no-repeat center;
+        background-size: contain;
+        width: 780px;
+        height: 700px;
+    }
+    .popUp .content {
+        width: 90%;
+        height: 532px;
+    }
+    .popUp .contentBg .close, .pop .contentBg .close {
+        right: 26%;
+        top: 1%;
+    }
+    .popUp .content p, .popUp .content b, .pop .content p {
+        width: 50%;
+    }
+    .pop .content>div {
+        flex-direction: column;
+    }
+    .pop .content>div .left {
+        margin-right: 0;
+        margin-bottom: 20px;
+    }
+    #activity .title img, #gift .title img {
+        width: 100%;
+    }
+    #activity .flex span {
+        width: 90%;
+    }
+    #gift .flex>div .ticket {
+        height: 95px;
+    }
+    #gift {
+        padding-top: 80px;
+    }
+    table {
+        width: 50%;
+    }
+}
+
+@media(max-width:700px) {
+    header .row1 .btn {
+        margin-left: 45%;
+    }
+    .popUp .contentBg, .pop .contentBg {
+        width: 95%;
+    }
+    #taxi .middle .taxi img {
+        margin: 5px auto;
+    }
+    #taxi .down .row2 img {
+        height: 250px;
+    }
+    .coin .coinWP .flex>img {
+        width: 85%;
+    }
+    .coin .coinWP .flex .left {
+        width: 70%;
+    }
+    #doll .dollWP .top p {
+        margin: 0 10px;
+    }
+    #activity .flex .left, #activity .flex .right {
+        width: 80%;
+    }
+    #activity .title::before, #activity .flex::before {
+        width: 160px;
+    }
+    #activity .flex::after {
+        width: 186px;
+    }
+    #gift .flex>div .ticket {
+        height: 90px;
+    }
+    #card .flex .right:after {
+        left: 12%;
+    }
+    #card {
+        padding-top: 50px;
+    }
+    #card .flex .left .twoDoll {
+        width: 100%;
+    }
+    #card .down .title img {
+        height: 76px;
+    }
+    .popUp .contentBg .close, .pop .contentBg .close {
+        right: 21%;
+    }
+}
+
+@media(max-width:650px) {
+    header .row1 .btn {
+        margin-left: 40%;
+    }
+    #taxi>.top .title_up.show {
+        left: 40px;
+    }
+    #taxi>.top {
+        height: 400px;
+    }
+    #taxi>.top .mon.show {
+        height: 250px;
+        bottom: 80px;
+    }
+    #taxi>.top .title.show {
+        height: 90px;
+        top: 80px;
+    }
+    @keyframes falling {
+        0% {
+            top: -25px;
+            opacity: 0.5;
+        }
+        10% {
+            top: 0px;
+            opacity: 1;
+        }
+        20% {
+            top: 25px;
+        }
+        30% {
+            top: 50px;
+        }
+        40% {
+            top: 85px;
+        }
+        50% {
+            top: 90px;
+        }
+        60% {
+            top: 80px;
+        }
+        70% {
+            top: 90px;
+        }
+        80% {
+            top: 80px;
+        }
+        90% {
+            top: 90px;
+        }
+        100% {
+            top: 80px;
+        }
+    }
+    @keyframes sildeUp {
+        0% {
+            bottom: -46px;
+            left: 40px;
+            opacity: 0;
+        }
+        25% {
+            bottom: -20px;
+            left: 40px;
+            opacity: 0.3;
+        }
+        50% {
+            bottom: 0;
+            left: 40px;
+            opacity: 0.5;
+        }
+        75% {
+            bottom: 10px;
+            left: 40px;
+            opacity: 1;
+        }
+        85% {
+            bottom: 0;
+            left: 40px;
+        }
+        95% {
+            bottom: 10px;
+            left: 40px;
+        }
+        100% {
+            bottom: 0px;
+            left: 40px;
+        }
+    }
+    #taxi .middle .taxi img {
+        width: 100%;
+    }
+    #taxi .middle .taxi {
+        margin: 20px auto;
+    }
+    #taxi .down .row1 .title.mobile {
+        margin: 0 20px;
+    }
+    .popUp .content p, .popUp .content b, .pop .content p {
+        width: 60%;
+    }
+    .coin .coinWP .flex>img {
+        width: 90%;
+    }
+    #doll .dollWP .top p img:nth-child(1) {
+        height: 180px;
+    }
+    #card .down .slides2.slick-initialized.slick-slider {
+        width: 80%;
+    }
+    #card .down .slides2 img {
+        width: 100%;
+    }
+    .popUp .contentBg .close, .pop .contentBg .close {
+        right: 18%;
+    }
+}
+
+@media(max-width:600px) {
+    header .row1 .btn {
+        margin-left: 35%;
+    }
+    #taxi>.top {
+        height: 400px;
+    }
+    #taxi>.top .mon.show {
+        height: 250px;
+    }
+    #taxi>.top .title.show {
+        height: 100px;
+    }
+    #taxi .middle .taxi img {
+        margin: 5px auto;
+    }
+    #taxi .down .row1 .title.mobile {
+        margin: 0;
+    }
+    #taxi .down .row1 {
+        position: relative;
+    }
+    #taxi .down .row1 .right .star3 {
+        right: 10%;
+        top: 13%;
+        position: absolute;
+    }
+    #taxi .down .row1 .right .star4 {
+        position: absolute;
+        right: 30px;
+        bottom: 40%;
+    }
+    #taxi .down .row1 .left .star2 {
+        position: absolute;
+        top: 10%;
+        left: 10%;
+    }
+    #taxi .down .row2 {
+        width: 80%;
+    }
+    #doll .dollWP .top p {
+        width: 32%;
+    }
+    #doll .dollWP .top p img, #doll .dollWP .top p img:nth-child(1) {
+        height: auto;
+        width: 100%;
+    }
+    #doll .dollWP {
+        height: 700px;
+    }
+    #doll .dollWP .top {
+        margin-bottom: 60px;
+    }
+    #gift .down {
+        width: 160%;
+        margin-top: 0;
+    }
+    #card .flex .right:after {
+        left: 6%;
+    }
+    footer .goTop {
+        width: 43px;
+    }
+    #card .down {
+        background: url(../img/mobile/bg_s10_m.svg) no-repeat center;
+        background-size: cover;
+    }
+    #card .down .title img, #tPoints .title {
+        height: 72px;
+    }
+    #tPoints section .row .question b {
+        font-size: 1.2rem;
+    }
+    #tPoints section .row .question p {
+        font-size: 1.1rem;
+    }
+    #tPoints section .row .question img {
+        width: 18px;
+        height: 7px;
+    }
+    #tPoints section .row .question {
+        padding: 21px 0;
+    }
+    #tPoints section {
+        margin: -40px auto 300px;
+    }
+    #tPoints .car {
+        height: 170px;
+    }
+    .popUp .contentBg .close, .pop .contentBg .close {
+        right: 16%;
+    }
+    #card .down .slides2 img.sliderImg.mobile {
+        display: block;
+        height: 450px;
+        width: 300px;
+        margin: 0 auto;
+    }
+    #card .down .slides2 img.sliderImg.pc {
+        display: none;
+    }
+    #card .down {
+        min-height: 900px;
+    }
+    #tPoints {
+        margin-top: -100px;
+    }
+    #card .down .slides2.slick-initialized.slick-slider {
+        width: 60%;
+    }
+}
+
+@media(max-width:550px) {
+    header .row1 .btn {
+        margin-left: 30%;
+    }
+    #taxi>.top {
+        height: 356px;
+    }
+    #taxi>.top .title.show {
+        top: 60px;
+    }
+    #taxi>.top .title_up.show {
+        left: 70px;
+        height: 70px;
+    }
+    #taxi>.top .mon.show {
+        height: 250px;
+        bottom: 50px;
+    }
+    @keyframes falling {
+        0% {
+            top: -25px;
+            opacity: 0.5;
+        }
+        10% {
+            top: 0px;
+            opacity: 1;
+        }
+        20% {
+            top: 60px;
+        }
+        30% {
+            top: 70px;
+        }
+        40% {
+            top: 60px;
+        }
+        50% {
+            top: 70px;
+        }
+        60% {
+            top: 60px;
+        }
+        70% {
+            top: 70px;
+        }
+        80% {
+            top: 60px;
+        }
+        90% {
+            top: 70px;
+        }
+        100% {
+            top: 60px;
+        }
+    }
+    @keyframes sildeUp {
+        0% {
+            bottom: -46px;
+            left: 70px;
+            opacity: 0;
+        }
+        25% {
+            bottom: -20px;
+            left: 70px;
+            opacity: 0.3;
+        }
+        50% {
+            bottom: 0;
+            left: 70px;
+            opacity: 0.5;
+        }
+        75% {
+            bottom: 10px;
+            left: 70px;
+            opacity: 1;
+        }
+        85% {
+            bottom: 0;
+            left: 70px;
+        }
+        95% {
+            bottom: 10px;
+            left: 70px;
+        }
+        100% {
+            bottom: 0px;
+            left: 70px;
+        }
+    }
+    #taxi .middle .taxi img {
+        height: 320px;
+    }
+    #taxi .middle .taxi {
+        margin: 15px auto;
+    }
+    #taxi .middle .noticeWP {
+        border-top-left-radius: 70px;
+        border-top-right-radius: 70px;
+    }
+    #taxi .down .row1 .left .star1 {
+        position: absolute;
+        left: 0;
+        top: 20%;
+    }
+    #taxi .down .row1 .right .star4 {
+        right: 3%;
+        bottom: 50%;
+    }
+    #taxi .down .row2 {
+        width: 85%;
+    }
+    #taxi .down .row2 img {
+        height: 235px;
+    }
+    #taxi .down .row3 .text p {
+        width: 95%;
+    }
+    .popUp .content p, .popUp .content b, .pop .content p {
+        width: 70%;
+    }
+    .popUp .contentBg .close, .pop .contentBg .close {
+        right: 12%;
+    }
+    .coin .coinWP .flex>img {
+        width: 95%;
+    }
+    .coin .coinWP>.title {
+        height: 73px;
+    }
+    #doll .dollWP {
+        height: 650px;
+    }
+    #activity .flex .left, #activity .flex .right, #gift .flex .left, #gift .flex .right {
+        width: 80%;
+    }
+    #activity .flex .btn {
+        left: 33%;
+    }
+    #gift .flex>div .ticket {
+        height: 85px;
+    }
+    #gift .down {
+        margin-top: 30px;
+    }
+    #card .flex .right:after {
+        left: 3%;
+    }
+    #card .flex .right .title img {
+        width: 90%;
+        margin: 0 auto;
+        display: block;
+    }
+    #card .down .title img, #tPoints .title {
+        height: 64px;
+    }
+    #tPoints .car {
+        height: 155px;
+    }
+}
+
+@media(max-width:500px) {
+    header .row1 .btn {
+        margin-left: 25%;
+    }
+    #taxi>.top {
+        height: 290px;
+    }
+    #taxi>.top .mon.show {
+        height: 200px;
+    }
+    #taxi>.top .title.show {
+        top: 46px;
+        height: 87px;
+    }
+    #taxi>.top .title_up.show {
+        left: 90px;
+        height: 60px;
+    }
+    @keyframes falling {
+        0% {
+            top: -25px;
+            opacity: 0.5;
+        }
+        10% {
+            top: 0px;
+            opacity: 1;
+        }
+        20% {
+            top: 46px;
+        }
+        30% {
+            top: 55px;
+        }
+        40% {
+            top: 46px;
+        }
+        50% {
+            top: 55px;
+        }
+        60% {
+            top: 46px;
+        }
+        70% {
+            top: 55px;
+        }
+        80% {
+            top: 46px;
+        }
+        90% {
+            top: 55px;
+        }
+        100% {
+            top: 46px;
+        }
+    }
+    @keyframes sildeUp {
+        0% {
+            bottom: -46px;
+            left: 90px;
+            opacity: 0;
+        }
+        25% {
+            bottom: -20px;
+            left: 90px;
+            opacity: 0.3;
+        }
+        50% {
+            bottom: 0;
+            left: 90px;
+            opacity: 0.5;
+        }
+        75% {
+            bottom: 10px;
+            left: 90px;
+            opacity: 1;
+        }
+        85% {
+            bottom: 0;
+            left: 90px;
+        }
+        95% {
+            bottom: 10px;
+            left: 90px;
+        }
+        100% {
+            bottom: 0px;
+            left: 90px;
+        }
+    }
+    #taxi .middle .taxiWP::before, #taxi .middle .taxiWP::after, #taxi .middle .taxi:nth-child(3)::before {
+        width: 180px;
+    }
+    #taxi .middle .taxi {
+        width: 70%;
+    }
+    #taxi .middle {
+        padding-top: 40px;
+    }
+    .noticeWP .mobile p, #taxi .down .row3 .text p, .coin .coinWP .flex .left .text p, .coin .coinWP .flex .left .text a, #activity .flex .right .date {
+        font-size: .9rem;
+    }
+    #taxi .down .row1 .title.mobile {
+        height: 110px;
+    }
+    #taxi .down .row1 {
+        padding: 20px 0;
+    }
+    #taxi .down .row2 {
+        width: 90%;
+    }
+    #taxi .down .row2 img {
+        height: 220px;
+    }
+    #taxi .down .row2 {
+        margin-bottom: 53px;
+    }
+    .popUp .contentBg, .pop .contentBg {
+        height: 588px;
+    }
+    .popUp .content p, .popUp .content b, .pop .content p {
+        width: 80%;
+        word-break: break-all;
+    }
+    .popUp .contentBg .close, .pop .contentBg .close {
+        right: 18%;
+    }
+    .pop .content, .popUp .content {
+        width: 80%;
+        height: 450px;
+        margin: 20px auto;
+    }
+    .coin .coinWP>.title {
+        height: 66px;
+    }
+    .coin .coinWP .flex .left {
+        width: 80%;
+    }
+    #doll .dollWP {
+        height: 600px;
+    }
+    #doll .dollWP .btn img {
+        height: 38px;
+    }
+    #activity .flex .left, #activity .flex .right {
+        width: 85%;
+    }
+    #activity .flex span {
+        width: 95%;
+        font-size: .75rem;
+        margin-bottom: 16px;
+    }
+    #activity .flex .btn {
+        left: 32%;
+    }
+    #activity .title, #gift .title {
+        width: 100%;
+    }
+    #gift .down {
+        width: 180%;
+    }
+    #gift .down {
+        margin-top: 50px;
+    }
+    #card .flex .right:after {
+        left: -1%;
+    }
+    #card .down .title {
+        padding: 100px 0 0;
+    }
+    #card .down .title img {
+        height: auto;
+        width: 97%;
+    }
+    #tPoints section {
+        padding: 50px 30px 68px;
+    }
+    #tPoints section .row .answer {
+        padding: 27px 16px;
+    }
+    #tPoints section .row .question p {
+        font-size: 1rem;
+    }
+    footer .flex .left {
+        font-size: 2rem;
+    }
+    footer .flex .right, footer p {
+        font-size: .9rem;
+    }
+    footer img.copyright {
+        height: 14px;
+    }
+    #card .down {
+        min-height: 850px;
+    }
+    #card .down .slides2.slick-initialized.slick-slider {
+        width: 70%;
+    }
+}
+
+@media(max-width:450px) {
+    header .row1 .btn {
+        margin-left: 20%;
+    }
+    #taxi .middle .taxi img {
+        height: 280px;
+    }
+    #taxi .middle {
+        padding-top: 30px;
+    }
+    #taxi>.top {
+        overflow: visible;
+        z-index: 1;
+    }
+    #taxi>.top .title_up.show {
+        display: none;
+    }
+    #taxi>.top .title_up_mobile {
+        display: block;
+    }
+    #taxi .down .row1 .title.mobile {
+        height: 100px;
+    }
+    #taxi .down .row2 img {
+        height: 210px;
+    }
+    #taxi .down .row3 .taxi {
+        width: 90%;
+    }
+    .popUp .contentBg .close, .pop .contentBg .close {
+        right: 10%;
+    }
+    table td {
+        font-size: .9rem;
+    }
+    #doll .dollWP {
+        height: 550px;
+    }
+    #doll {
+        padding: 75px 0 73px;
+    }
+    #activity .flex p {
+        font-size: 1.2rem;
+    }
+    #activity .flex .btn img {
+        height: 44px;
+    }
+    #activity .flex .btn {
+        bottom: -24px;
+        left: 30%;
+    }
+    #activity .flex .left>img, #activity .flex .right>img {
+        border-radius: 31px;
+    }
+    #activity .title, #gift .title {
+        margin-bottom: 29px;
+    }
+    #gift .flex>div .ticket {
+        height: 80px;
+    }
+    #gift .flex .left, #gift .flex .right {
+        width: 85%;
+    }
+    #card .flex .right:after {
+        left: -8%;
+    }
+    #card .flex .right .title img {
+        width: 95%;
+    }
+    #card .down .title {
+        padding: 80px 0 0;
+    }
+    #tPoints section {
+        padding: 50px 20px 68px;
+    }
+    #tPoints section .row .question p {
+        font-size: .9rem;
+    }
+    #tPoints section .row .question b {
+        font-size: 1rem;
+    }
+    #tPoints section {
+        margin: -34px auto 350px;
+    }
+    #tPoints section .row .question {
+        padding: 16px 0;
+    }
+    #tPoints section {
+        margin: -40px auto 266px;
+    }
+    #tPoints .car {
+        height: 150px;
+    }
+    #card .down {
+        min-height: 800px;
+    }
+    #card .down .slides2.slick-initialized.slick-slider {
+        width: 75%;
+    }
+    #card .down .slides2 img.sliderImg.mobile {
+        width: 288px;
+    }
+}
+
+@media(max-width:414px) {
+    header .row1 .btn {
+        margin-left: 15%;
+    }
+    #taxi>.top .mon.show {
+        height: 187px;
+        left: 50px;
+    }
+    #taxi>.top .title_up.show {
+        left: 130px;
+        height: 50px;
+    }
+    @keyframes sildeUp {
+        0% {
+            bottom: -46px;
+            left: 130px;
+            opacity: 0;
+        }
+        25% {
+            bottom: -20px;
+            left: 130px;
+            opacity: 0.3;
+        }
+        50% {
+            bottom: 0;
+            left: 130px;
+            opacity: 0.5;
+        }
+        75% {
+            bottom: 10px;
+            left: 130px;
+            opacity: 1;
+        }
+        85% {
+            bottom: 0;
+            left: 130px;
+        }
+        95% {
+            bottom: 10px;
+            left: 130px;
+        }
+        100% {
+            bottom: 0px;
+            left: 130px;
+        }
+    }
+    #taxi .middle .noticeWP {
+        padding: 50px 30px 20px;
+    }
+    .noticeWP .mobile p, #taxi .down .row3 .text p, .coin .coinWP .flex .left .text p, .coin .coinWP .flex .left .text a, #activity .flex .right .date {
+        font-size: .85rem;
+        line-height: 2rem;
+    }
+    #taxi .middle .btn img {
+        height: 45px;
+    }
+    #taxi .down .row1 .title.mobile {
+        height: 90px;
+    }
+    #taxi .down .row1 {
+        padding: 10px 0;
+    }
+    #taxi .down .row2 {
+        width: 100%;
+    }
+    .coin .coinWP>.title {
+        height: 62px;
+    }
+    .coin .coinWP .flex .left .text .title {
+        font-size: 1.35rem;
+    }
+    #doll .dollWP .top {
+        margin-bottom: 40px;
+    }
+    #doll .dollWP {
+        height: 500px;
+    }
+    #doll .dollWP .btn img {
+        height: 32px;
+    }
+    #activity .flex .right .date {
+        line-height: 42px;
+    }
+    #activity .title::after {
+        width: 160px;
+        height: 69px;
+    }
+    #activity {
+        padding: 62px 0;
+    }
+    #card .flex .right .title img {
+        width: 100%;
+    }
+    footer .goTop {
+        width: 40px;
+    }
+    #tPoints section {
+        margin: -40px auto 240px;
+    }
+    #tPoints .car {
+        height: 140px;
+    }
+    table td {
+        font-size: .85rem;
+    }
+}
+
+@media(max-width:400px) {
+    header .row1 .btn {
+        margin-left: 10%;
+    }
+    #taxi .middle .taxi {
+        width: 80%;
+    }
+    #taxi .down .row2 img {
+        margin: 0 5px;
+    }
+    .popUp .contentBg .close, .pop .contentBg .close {
+        right: 2%;
+    }
+    #doll .dollWP {
+        height: 450px;
+    }
+    #doll .dollWP .btn {
+        margin-bottom: 11px;
+    }
+    #activity .flex p {
+        font-size: 1.1rem;
+    }
+    #activity .flex .btn {
+        left: 28%;
+    }
+    #gift .flex>div .ticket {
+        height: 75px;
+    }
+    #gift .flex .left, #gift .flex .right {
+        width: 90%;
+    }
+    #gift .down {
+        width: 200%;
+    }
+    #card .flex .left, #card .flex .right {
+        width: 90%;
+    }
+    footer .flex .left {
+        font-size: 1.8rem;
+    }
+    #card .down .slides2.slick-initialized.slick-slider {
+        width: 70%;
+    }
+    #card .down {
+        min-height: 750px;
+    }
+    #card .down .slides2 img.sliderImg.mobile {
+        height: 400px;
+        width: 270px;
+    }
+}
+
+@media(max-width:375px) {
+    header .row1 a h1 {
+        height: 27px;
+    }
+    header nav, header nav span {
+        width: 25px;
+    }
+    header .row1 a h1 {
+        width: 180px;
+    }
+    header .row1 .btn img.mobile {
+        height: 25px;
+    }
+    #taxi>.top .mon.show {
+        left: 30px;
+    }
+    .noticeWP .mobile p, #taxi .down .row3 .text p, .coin .coinWP .flex .left .text p, .coin .coinWP .flex .left .text a, #activity .flex span, #activity .flex .right .date {
+        font-size: .8rem;
+        line-height: 1.8rem;
+    }
+    #activity .flex span {
+        line-height: initial;
+    }
+    #activity .flex p {
+        font-size: 1rem;
+        font-weight: bolder;
+    }
+    #taxi .down .row1 .title.mobile {
+        height: 80px;
+    }
+    #taxi .down .row1 {
+        padding: 0;
+    }
+    #taxi .down .row1 .right .star3 {
+        top: 3%;
+    }
+    #taxi .down .row1 .left .star2 {
+        top: 5%;
+        left: 18%;
+    }
+    #taxi .down .row1 .left .star1 {
+        top: 26%;
+    }
+    .coin .coinWP>.title {
+        height: 57px;
+    }
+    .coin .coinWP .flex .left {
+        width: 90%;
+    }
+    #doll {
+        padding-bottom: 0;
+    }
+    #doll .dollWP {
+        height: 430px;
+    }
+    #activity .flex .btn img {
+        height: 41px;
+    }
+    #activity .flex .btn {
+        left: 26%;
+    }
+    #activity .flex .right .date {
+        line-height: 42px;
+    }
+    #gift .flex>div .ticket {
+        height: 65px;
+    }
+    #card .flex .left, #card .flex .right {
+        width: 95%;
+    }
+    #card .text p {
+        font-size: .75rem;
+    }
+    #card .down .title {
+        padding: 60px 0 0;
+    }
+    #tPoints section .row .question b {
+        font-size: .9rem;
+        margin-right: 5px;
+    }
+    #tPoints section .row .question p, #tPoints section .row .answer p, footer .flex .right, footer p {
+        font-size: .85rem;
+    }
+    #tPoints section {
+        margin: -40px auto 210px;
+    }
+    #tPoints .car {
+        height: 120px;
+    }
+    footer .flex .left {
+        font-size: 1.6rem;
+    }
+    #card .down .slides2.slick-initialized.slick-slider {
+        width: 65%;
+    }
+    #card .down {
+        min-height: 700px;
+    }
+    #card .down .slides2 img.sliderImg.mobile {
+        height: 380px;
+        width: 100%;
+    }
+}
+
+@media(max-width:350px) {
+    header .row1 .btn {
+        margin-left: 8%;
+    }
+    header {
+        padding: 0 8px;
+    }
+    header .row1 a h1 {
+        width: 170px;
+    }
+    #taxi>.top .mon.show {
+        left: 20px;
+    }
+    #taxi .middle .taxi {
+        width: 100%;
+    }
+    .noticeWP .mobile p, #taxi .down .row3 .text p, .coin .coinWP .flex .left .text p, .coin .coinWP .flex .left .text a, #activity>p, #activity .flex span, #activity .flex .right .date {
+        font-size: .75rem;
+        line-height: 1.5rem;
+    }
+    #taxi .down .row2 img {
+        height: 206px;
+    }
+    .popUp .contentBg .close, .pop .contentBg .close {
+        top: 4%;
+    }
+    .coin .coinWP>.title {
+        height: 50px;
+    }
+    .coin .coinWP .flex .left .text p {
+        font-size: .9rem;
+    }
+    #doll .dollWP {
+        height: 400px;
+    }
+    #doll .dollWP .btn img {
+        height: 24px;
+    }
+    #doll .dollWP .top p {
+        margin: 0 5px;
+    }
+    #activity .flex .btn {
+        left: 24%;
+    }
+    #activity .flex .btn img {
+        height: 39px;
+    }
+    #activity .flex .right .date {
+        line-height: 42px;
+    }
+    #gift .flex>div .ticket {
+        height: 63px;
+    }
+    footer .goTop {
+        width: 36px;
+    }
+    #tPoints section .row .question p, #tPoints section .row .question b, #tPoints section .row .answer p {
+        font-size: .8rem;
+    }
+}
+
+@media(max-width:345px) {
+    #taxi .down .row2 img {
+        height: 190px;
+    }
+    #activity .flex .btn {
+        left: 22%;
+    }
+    #activity .flex .btn img {
+        height: 38px;
+    }
+    #gift .flex .left, #gift .flex .right {
+        width: 95%;
+    }
+    #tPoints section .row .question p, #tPoints section .row .question b, #tPoints section .row .answer p {
+        font-size: .75rem;
+    }
+    .pop .content, .popUp .content {
+        height: 400px;
+    }
+}

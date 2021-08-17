@@ -1,0 +1,109 @@
+<div class="row1">
+    <a href="index.html"><h1>logo</h1></a>
+    <div class="right">
+        <a href="#feedback">搭車賺回饋</a>
+        <a href="#doll">黏黏怪物周邊</a>
+        <a href="#activity">歡慶上市限時活動</a>
+        <a href="#gift">推薦好禮</a>
+        <a href="#card">一鍵綁卡</a>
+        <a href="#tPoints"> T Points介紹</a>
+    </div>
+    <div class="btn">
+        <a href=""><img src="img/btn_header.svg" alt="" class="pc"></a>
+        <a href=""><img src="img/immediately.svg" alt="" class="mobile"></a>
+    </div>
+    <nav>
+        <span></span>
+        <span></span>
+        <span></span>
+    </nav>
+    <div class="menu">
+        <a href="#feedback">搭車賺回饋</a>
+        <a href="#doll">黏黏怪物周邊</a>
+        <a href="#activity">歡慶上市限時活動</a>
+        <a href="#gift">推薦好禮</a>
+        <a href="#card">一鍵綁卡</a>
+        <a href="#tPoints"> T Points介紹</a>
+    </div>
+</div>
+<script>
+    $(document).ready(function(){
+    let $H=$(window).height();
+    let $W=$(window).width();
+    
+    $('header .bg').height($H+70);
+    let h=$('header .row1 .menu').height();
+    if($H-40 < h){
+        $('header .row1 .menu').css({'overflow-y':'scroll'});
+    }
+
+    //resize   
+   $(window).resize(function(){
+        let $H=$(window).height();
+        let $W=$(window).width();
+        $('header .menu').hide();
+        $('#main').removeClass('sliderDown');
+        $("body").removeClass('menuOpen');
+        let h=$('header .row1 .menu').height();
+        if($H-40 < h){
+            $('header .row1 .menu').css({'overflow-y':'scroll'});
+        }
+   });
+
+   //header
+   $(document).scroll(function(){
+      if($W<750){
+        $('header').removeClass('bgColor');
+      }else{
+        $('header').addClass('bgColor');
+      }
+   });
+
+    /*menu*/
+    $('header nav').click(function(){
+        $('header .menu').toggleClass('show');
+        $("body").toggleClass('menuOpen');
+        $('#main').toggleClass('sliderDown');
+        $('header').toggleClass('open');
+    });
+    $('header .menu a').click(function(){
+        $('header .menu').removeClass('show');
+        $("body").removeClass('menuOpen');
+        $('header').removeClass('open');
+    });
+
+    $('a[href=#feedback]').click(function () {
+        $('html,body').animate({
+            scrollTop: $('#feedback').offset().top - 85
+        }, 1000);
+   });
+    $('a[href=#doll]').click(function () {
+        $('html,body').animate({
+            scrollTop: $('#doll').offset().top - 85
+        }, 1000);
+    });
+        
+    $('a[href=#activity]').click(function () {
+            $('html,body').animate({
+                scrollTop: $('#activity').offset().top - 85
+            }, 1000);
+    });
+    $('a[href=#gift]').click(function () {
+            $('html,body').animate({
+                scrollTop: $('#gift').offset().top - 85
+            }, 1000);
+    });
+    $('a[href=#card]').click(function () {
+        
+            $('html,body').animate({
+                scrollTop: $('#card').offset().top - 85
+            }, 1000);
+    });
+    $('a[href=#tPoints]').click(function () {
+        
+        $('html,body').animate({
+            scrollTop: $('#tPoints').offset().top - 85
+        }, 1000);
+});
+    });
+</script>
